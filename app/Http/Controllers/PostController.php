@@ -34,7 +34,8 @@ class PostController extends Controller
         
 
         $flight->save();
-        return redirect()->route('home')->with('success', 'Item successfully created!');
+        flash()->success('New product successfully add');
+        return redirect()->route('home');
     }
 
     public function editMethod($id) {
@@ -65,13 +66,16 @@ class PostController extends Controller
 
 
         $flight->save();
-        return redirect()->route('home')->with('success', 'Item successfully updated!');
+
+        flash()->success('New product successfully updated');
+        return redirect()->route('home');
     }
 
     public function deleteMethod($id) {
         
         $flight = post::findOrfail($id); 
         $flight->delete();
-        return redirect()->route('home')->with('success', 'Item successfully delete!');
+        flash()->success('Item successfully delete!');
+        return redirect()->route('home');
     }
 }

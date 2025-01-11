@@ -53,7 +53,17 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                 <a href="{{route('edit', $post->id)}}" type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent  focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none bg-green-600 text-white px-3 py-2">edit</a>
-                                <a href="{{route('delete', $post->id)}}" type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none bg-red-600 text-white px-3 py-2">Delete</a>
+
+                                
+
+                                {{-- this is 2 wayes delete method --}}
+
+                                {{-- <a href="{{route('delete', $post->id)}}" type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none bg-red-600 text-white px-3 py-2">Delete</a> --}}
+                                <form action="{{route('delete', $post->id)}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="bg-red-600 text-white px-3 py-2" type="submit" >delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
