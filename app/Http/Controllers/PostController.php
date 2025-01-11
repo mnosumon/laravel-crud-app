@@ -15,6 +15,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'name' => 'required|unique:posts|max:255',
             'email' => 'required',
+            'age' => 'required',
             'image' => 'nullable|mimes:jpg,png,jpeg|max:20480',
         ]);
 
@@ -27,6 +28,7 @@ class PostController extends Controller
         $flight = new post();
         
         $flight->name = $request->name;
+        $flight->age = $request->age;
         $flight->email = $request->email;
         $flight->image = $imageName;
         

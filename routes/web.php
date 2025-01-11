@@ -1,9 +1,10 @@
 <?php
 use App\Http\Controllers\PostController;
+use App\Models\post;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['datas'=>post::all()]);
 })->name('home');
 Route::get('/about', function () {
     return view('about');

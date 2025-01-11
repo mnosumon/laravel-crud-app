@@ -23,6 +23,13 @@
                     @enderror
                 </div>
                 <div class="my-2">
+                    <label class="text-lg" for="age">Age</label>
+                    <input class="outline-none border px-3 py-2 appearance-none" name="age" type="number" placeholder="enter your age" value="{{ old('age') }}">
+                    @error('age')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="my-2">
                     <label class="text-lg" for="email">Email</label>
                     <input class="outline-none border px-3 py-2 " name="email"  type="email" placeholder="enter your email" value="{{ old('email') }}">
                     @error('email')
