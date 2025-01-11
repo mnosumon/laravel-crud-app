@@ -36,4 +36,9 @@ class PostController extends Controller
         $flight->save();
         return redirect()->route('home')->with('success', 'Item successfully created!');
     }
+
+    public function editMethod($id) {
+        $flight = post::findOrfail($id); 
+        return view('edit', ['dataPost' => $flight]);
+    }
 }

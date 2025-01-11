@@ -35,6 +35,7 @@
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Age</th>
                         <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">email</th>
+                        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">image</th>
                         <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
                         </tr>
                     </thead>
@@ -51,7 +52,8 @@
                                 
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
+                                <a href="{{route('edit', $post->id)}}" type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent  focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none bg-green-600 text-white px-3 py-2">edit</a>
+                                <a href="#" type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none bg-red-600 text-white px-3 py-2">Delete</a>
                             </td>
                         </tr>
                         @endforeach
