@@ -41,4 +41,30 @@ class PostController extends Controller
         $flight = post::findOrfail($id); 
         return view('edit', ['dataPost' => $flight]);
     }
+
+    public function updateMethod($id, Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|unique:posts|max:255',
+            'email' => 'required',
+            'age' => 'required',
+            'image' => 'nullable|mimes:jpg,png,jpeg|max:20480',
+        ]);
+
+
+
+        $flight = post::findOrfail($id); 
+        
+        $flight->name = $request->name;
+        $flight->age = $request->age;
+        $flight->email = $request->email;
+        if (isset($request->image)) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $flight->image = $imageName;  
+        }
+
+
+        $flight->save();
+        return redirect()->route('home')->with('success', 'Item successfully updated!');
+    }
 }

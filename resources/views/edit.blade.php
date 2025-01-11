@@ -14,7 +14,7 @@
         </div>
         <div class="">
             <div class="">edit - {{$dataPost->name}} </div>
-            <form method="POST" action="{{route('store')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('update', $dataPost->id)}}" enctype="multipart/form-data">
                 @csrf
                 <div class="my-2">
                     <label class="text-lg" for="name">Name</label>

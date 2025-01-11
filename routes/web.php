@@ -13,3 +13,4 @@ Route::get('/about', function () {
 Route::get('/data', [PostController::class, 'dataMethod']);
 Route::post('/store', [PostController::class, 'storeMethod'])->name('store');
 Route::get('/edit/{id}', [PostController::class, 'editMethod'])->name('edit');
+Route::post('/update/{id}', [PostController::class, 'updateMethod'])->name('update');
