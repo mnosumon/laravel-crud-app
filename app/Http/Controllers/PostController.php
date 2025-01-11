@@ -17,13 +17,19 @@ class PostController extends Controller
             'email' => 'required',
             'image' => 'nullable|mimes:jpg,png,jpeg|max:20480',
         ]);
-        
+
+        $imageName = null;
+        if (isset($request->image)) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+        }
 
         $flight = new post();
         
         $flight->name = $request->name;
         $flight->email = $request->email;
-        $flight->image = time().'.'.$request->image->extension();
+        $flight->image = $imageName;
+        
 
         $flight->save();
         return redirect()->route('home')->with('success', 'Item successfully created!');

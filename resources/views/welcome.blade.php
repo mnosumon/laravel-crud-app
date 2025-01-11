@@ -20,6 +20,9 @@
                     {{ session('success') }}
                 </div>
             @endif
+            <div class="text-5xl font-bold">
+                <h1>This is welcome page</h1>
+            </div>
     </nav>
 
 </body>
