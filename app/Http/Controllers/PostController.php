@@ -67,4 +67,11 @@ class PostController extends Controller
         $flight->save();
         return redirect()->route('home')->with('success', 'Item successfully updated!');
     }
+
+    public function deleteMethod($id) {
+        
+        $flight = post::findOrfail($id); 
+        $flight->delete();
+        return redirect()->route('home')->with('success', 'Item successfully delete!');
+    }
 }
